@@ -9,7 +9,8 @@ class RecipesController < ApplicationController
     end
 
     def show
-
+        @comment = Comment.new
+        @comments = @recipe.comments.paginate(page: params[:page], per_page: 2)
     end
 
     def new
@@ -41,8 +42,8 @@ class RecipesController < ApplicationController
     end
 
     def destroy
-        Recipe.find(params[:id]).destroy
-        flash[:success] = "Recipe was Deleted sucessfully!"
+        @recipe.destroy
+        flash[:notice] = "Recipe was Deleted sucessfully!"
         redirect_to recipes_path
     end
 
@@ -55,7 +56,7 @@ class RecipesController < ApplicationController
 
 
     def recipe_params
-        params.require(:recipe).permit(:name, :description)
+        params.require(:recipe).permit(:name, :description, ingredient_ids: [])
     end
 
     def require_same_user

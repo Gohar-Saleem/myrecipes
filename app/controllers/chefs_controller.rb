@@ -13,7 +13,7 @@ class ChefsController < ApplicationController
         @chef = Chef.new
     end
 
-    def Create
+    def create
         @chef = Chef.new(chef_params)
         if @chef.save
             session[:chef_id] = @chef.id

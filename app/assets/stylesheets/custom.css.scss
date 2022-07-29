@@ -58,6 +58,8 @@ footer {
     padding-top: 5px;
     border-top: 1px solid #eaeaea;
     color: #777;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 footer a {
@@ -114,4 +116,8 @@ footer ul li {
     color: black;
     font-weight: bold;
     font-size: 1.25em;
+}
+
+.input_checkbox input {
+    width: auto !important;
 }
